@@ -15,7 +15,6 @@ t = new twitter credentials
 
 t.stream 'user', {track:'god'}, (stream) ->
   stream.on 'data', (data) ->
-    console.log data
     for socket in connectedSockets
       socket.emit 'tweet', data
 
