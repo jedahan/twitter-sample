@@ -1,3 +1,8 @@
+# twitter
+twitter = require 'ntwitter'
+credentials = require './credentials.json'
+t = new twitter credentials
+
 keywords = 'god,evil,love,hate,hell,good,bad,devil,pray,dios,mal,amor,odio,infierno,bien,maldad,diablo,rezar'
 
 # server
@@ -18,11 +23,6 @@ io.sockets.on 'connection', (socket) ->
       console.log "status sent"
 
 io.set 'log level', 1
-
-# twitter
-twitter = require 'ntwitter'
-credentials = require './credentials.json'
-t = new twitter credentials
 
 handleStream = ->
   t.stream 'user', {track: keywords}, (stream) ->
