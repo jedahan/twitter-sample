@@ -19,8 +19,10 @@ t = new twitter credentials
 handleStream = ->
   for socket in connectedSockets
     socket.on 'tweet', (reply) ->
+      console.log "got tweet #{reply}"
       t.updateStatus, "@#{reply.username} #{reply.message}", {in_reply_to_status_id: reply.status_id}, (err, reply) ->
         console.error err if err
+        console.log "status sent"
         res.send reply
 
   t.stream 'user', {track: keywords}, (stream) ->
