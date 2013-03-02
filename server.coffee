@@ -18,8 +18,7 @@ t = new twitter credentials
 
 handleStream = ->
   for socket in connectedSockets
-    socket.on 'tweet', (data) ->
-      reply = JSON.parse(data)
+    socket.on 'tweet', (reply) ->
       t.updateStatus, "@#{reply.username} #{reply.message}", {in_reply_to_status_id: reply.status_id}, (err, reply) ->
         console.error err if err
         res.send reply
