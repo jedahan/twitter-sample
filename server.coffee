@@ -1,3 +1,5 @@
+keywords = 'god,evil,love,hate,hell,good,bad,devil,pray,dios,mal,amor,odio,infierno,bien,maldad,diablo,rezar'
+
 # server
 restify = require 'restify'
 server = restify.createServer()
@@ -15,7 +17,7 @@ credentials = require './credentials.json'
 t = new twitter credentials
 
 handleStream = ->
-  t.stream 'user', {track:'god'}, (stream) ->
+  t.stream 'user', {track: keywords}, (stream) ->
 
     stream.on 'data', (data) ->
       for socket in connectedSockets
