@@ -13,7 +13,7 @@ io.sockets.on 'connection', (socket) ->
   connectedSockets.push socket
   socket.on 'tweet', (reply) ->
     console.log "got tweet #{reply}"
-    t.updateStatus, "@#{reply.username} #{reply.message}", {in_reply_to_status_id: reply.status_id}, (err, reply) ->
+    t.updateStatus "@#{reply.username} #{reply.message}", {in_reply_to_status_id: reply.status_id}, (err, reply) ->
       console.error err if err
       console.log "status sent"
 
