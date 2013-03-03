@@ -1,5 +1,5 @@
 # twitter
-twitter = require 'ntwitter'
+twitter = require 'mtwitter'
 credentials = require './credentials.json'
 t = new twitter credentials
 
