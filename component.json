@@ -1,7 +1,7 @@
 { "name": "twitter-sample"
 , "version": "0.0.1"
 , "dependencies":
-  { "jquery": "1.9.x"
+  { "jquery": "2.0.x"
   , "socket.io": "0.9.x"
   }
 , "main": [ "index.html" ]
