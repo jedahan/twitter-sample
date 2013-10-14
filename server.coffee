@@ -1,3 +1,10 @@
+# we want to read a twitter stream later
+Writable = require('stream').Writable
+handleStream = Writable()
+handleStream._write = (chunk, enc, next) ->
+  console.log chunk.toString()
+  next()
+
 # twitter
 twitter = require 'mtwitter'
 credentials = require './credentials.json'
@@ -24,8 +31,8 @@ io.sockets.on 'connection', (socket) ->
 
 io.set 'log level', 1
 
-handleStream = ->
-  t.stream 'user', {track: keywords}, (stream) ->
+###
+  t.stream 'user', , (stream) ->
 
     stream.on 'data', (data) ->
       for socket in connectedSockets
@@ -38,6 +45,7 @@ handleStream = ->
     stream.on 'destroy', (response) ->
       console.log "destroyed #{reponse}"
       setTimeout handleStream(), 1000
+###
 
 # cors proxy and body parser
 server.use restify.bodyParser()
@@ -47,5 +55,10 @@ server.use restify.fullResponse() # set CORS, eTag, other common headers
 server.get /\/*$/, restify.serveStatic directory: './public', default: 'index.html'
 
 server.listen (process.env.PORT or 8080), ->
-  handleStream()
+  t.stream.raw(
+    'GET',
+    'https://userstream.twitter.com/1.1/user.json',
+    {track: keywords, delimited: 'length'},
+    handleStream
+  )
   console.info "[%s] #{server.name} listening at #{server.url}", process.pid
