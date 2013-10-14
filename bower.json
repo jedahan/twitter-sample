@@ -1,0 +1,29 @@
+{
+  "name": "twitter-sample",
+  "version": "0.0.3",
+  "homepage": "https://github.com/jedahan/twitter-sample",
+  "authors": [
+    "Jonathan Dahan <jonathan@jedahan.com>"
+  ],
+  "dependencies": {
+    "jquery": "2.0.x",
+    "socket.io": "0.9.x"
+  },
+  "description": "Sample restify application that uses websockets and twitter",
+  "main": "index.html",
+  "keywords": [
+    "twitter",
+    "websockets",
+    "restify"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ]
+}
