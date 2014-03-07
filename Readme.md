@@ -2,7 +2,11 @@
 
 ## Dependencies
 
-  * node.js (`brew install node`)
+  * [node.js][] (`brew install node`)
+
+## Getting the code
+
+  * `git clone https://github.com/jedahan/twitter-sample.git`
 
 ## Installation
 
@@ -12,3 +16,5 @@
 ## Running
 
   * `npm start` will compile the client scripts and start the server
+
+[node.js]: nodejs.org

@@ -3,6 +3,7 @@ twit = require 'twit'
 credentials = require './credentials.json'
 t = new twit credentials
 keywords = 'smilesurfer'
+tweets = []
 
 # server
 restify = require 'restify'
@@ -19,6 +20,8 @@ connectedSockets = []
 
 io.sockets.on 'connection', (socket) ->
   connectedSockets.push socket
+  for tweet in tweets
+    socket.emit 'tweet', tweet
 
 io.set 'log level', 1
 
@@ -26,6 +29,7 @@ server.listen (process.env.PORT or 5200), ->
   stream = t.stream 'statuses/filter', { track: keywords }
 
   stream.on 'tweet', (tweet) ->
+    tweets << tweet
     for socket in connectedSockets
       socket.emit 'tweet', tweet
 
