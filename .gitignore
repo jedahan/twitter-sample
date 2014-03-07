@@ -1,6 +1,6 @@
 node_modules
+npm-debug.log
 credentials.json
 public/components
-server.js
 .DS_Store
 public/scripts/twitter.js

@@ -1,26 +1,28 @@
-{ "name": "twitter-sample"
-, "version": "0.0.3"
-, "description": "Sample restify application that uses websockets and twitter"
-, "author": "Jonathan Dahan <jonathan@jedahan.com>"
-, "dependencies": {
-    "coffee-script": "1.6.x"
-  , "restify": "2.6.x"
-  , "mtwitter": "1.5.x"
-  , "socket.io": "0.9.x"
-  , "supervisor": "0.5.x"
-  }
-, "devDependencies": {
+{
+  "name": "twitter-sample",
+  "version": "0.0.5",
+  "description": "Sample restify application that uses websockets and twitter",
+  "author": "Jonathan Dahan <jonathan@jedahan.com>",
+  "dependencies": {
+    "coffee-script-redux": "2.0.x",
+    "restify": "2.6.x",
+    "twit": "1.1.x",
+    "socket.io": "0.9.x"
+  },
+  "devDependencies": {
     "bower": "1.2.x"
-  }
-, "engines": {
+  },
+  "engines": {
     "node": "0.10.x",
-    "npm":  "1.3.x"
-  }
-, "repository": {
-    "type": "git"
-  , "url": "https://github.com/jedahan/twitter-sample.git"
-  }
-, "scripts": {
-    "install": "bower install"
+    "npm": "1.4.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jedahan/twitter-sample.git"
+  },
+  "scripts": {
+    "install": "bower install",
+    "prestart": "rm public/scripts/twitter.js; coffee --js < public/scripts/twitter.coffee > public/scripts/twitter.js",
+    "start": "coffee server.coffee"
   }
 }

@@ -6,8 +6,7 @@
     "Jonathan Dahan <jonathan@jedahan.com>"
   ],
   "dependencies": {
-    "jquery": "2.0.x",
-    "socket.io": "0.9.x"
+    "jquery": "2.1.x"
   },
   "description": "Sample restify application that uses websockets and twitter",
   "main": "index.html",

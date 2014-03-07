@@ -2,17 +2,13 @@
 
 ## Dependencies
 
-  * [npm] for server libraries (`brew install node`)
-  * [foreman] for orchestrating the database, preprocessors and server (`gem install foreman`)
+  * node.js (`brew install node`)
 
 ## Installation
 
-  * `npm install` will isntall node libraries, then client libraries (using bower)
+  * `npm install` will install node libraries, then client libraries (using bower)
   * Put your twitter credentials in `credentials.json`, (`mv credentials.json{.template,} && subl credentials.json`)
 
 ## Running
 
-  * `foreman start` will execute the `Procfile`
-
-[npm]: https://npmjs.org
-[foreman]: https://github.com/ddollar/foreman
+  * `npm start` will compile the client scripts and start the server
