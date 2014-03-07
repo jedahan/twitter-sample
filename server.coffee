@@ -22,7 +22,6 @@ io.sockets.on 'connection', (socket) ->
 
 io.set 'log level', 1
 
-
 server.listen (process.env.PORT or 5200), ->
   stream = t.stream 'statuses/filter', { track: keywords }
 
