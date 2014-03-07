@@ -7,8 +7,18 @@
 
 <script src=components/jquery/dist/jquery.min.js></script>
 
+<script src=components/dustjs/dist/dust-full-0.3.0.min.js></script>
+
 <script src=/socket.io/socket.io.js></script>
 
 <script src=scripts/twitter.js></script>
 
-<ul id='tweets'></ul>
+<ul id='tweets'>
+
+</ul>
+
+<template class='tweet'>
+    {#tweets}
+        <li>@{user}: {text} {#media}<img src="{media}" />{/media}
+    {/tweets}
+</template>

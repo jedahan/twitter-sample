@@ -1,6 +1,9 @@
 socket = io.connect 'http://localhost:5200'
 
-store = {tweets: []}
+@store = {tweets: []}
+@rendertweets = ->
+    dust.render "tweet", window.store, (err, out) ->
+        $('#tweets').html(out)
 
 socket.on 'connect', -> console.log 'connected'
 socket.on 'disconnect', -> console.log 'disconnected'
@@ -12,6 +15,12 @@ socket.on 'tweet', (tweet) ->
         media: tweet.entities.media?[0]?.media_url
     }
 
-    store.tweets << t
+    window.store.tweets.push t
+    window.rendertweets()
 
-    $('#tweets').prepend("<li>@#{t.user}: #{t.text}<img src='#{t.media}' /></li>")
+$(document).ready ->
+    source   = $("template").html()
+    compiled = dust.compile(source, "tweet")
+    dust.loadSource compiled
+
+    window.rendertweets()

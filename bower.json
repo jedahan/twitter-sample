@@ -6,7 +6,8 @@
     "Jonathan Dahan <jonathan@jedahan.com>"
   ],
   "dependencies": {
-    "jquery": "~2.1.0"
+    "jquery": "~2.1.0",
+    "dustjs": "~0.3.0"
   },
   "description": "Sample restify application that uses websockets and twitter",
   "main": "index.html",
